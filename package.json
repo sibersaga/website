@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "SDN 3 Purwosari Website - Full Stack Application",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "bash setup.sh || call setup.bat",
+    "dev": "concurrently \"npm run dev --prefix=frontend\" \"npm run dev --prefix=backend\"",
+    "build": "npm run build --prefix=frontend && npm run build --prefix=backend",
+    "start": "npm start --prefix=backend",
+    "lint": "npm run lint --prefix=frontend && npm run lint --prefix=backend",
+    "clean": "npm run clean --prefix=frontend && rm -rf backend/dist",
+    "supabase:setup": "bash supabase-setup.sh",
+    "db:migrate": "npm run migrate --prefix=backend",
+    "test": "npm test --prefix=frontend && npm test --prefix=backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": ["sdn3", "purwosari", "website", "school", "react", "express", "supabase"],
+  "author": "SDN 3 Purwosari Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sibersaga/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sibersaga/website/issues"
+  },
+  "homepage": "https://github.com/sibersaga/website"
+}

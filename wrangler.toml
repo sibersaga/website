@@ -1,0 +1,36 @@
+# Cloudflare Pages Configuration
+# Dokumentasi: https://developers.cloudflare.com/pages/platform/build-configuration/
+
+name = "sdn3-purwosari"
+main = "frontend"
+compatibility_date = "2024.12.01"
+
+# Build configuration
+[build]
+command = "npm run build --prefix=frontend"
+cwd = "/frontend"
+destination = "/dist"
+
+# Environment variables untuk build
+[env.production]
+vars = { VITE_API_URL = "https://api.sdn3purwosari.com", NODE_ENV = "production" }
+
+[env.staging]
+vars = { VITE_API_URL = "https://staging-api.sdn3purwosari.com", NODE_ENV = "staging" }
+
+# Routes configuration
+[[routes]]
+pattern = "/*"
+zone_name = "sdn3purwosari.com"
+
+# Security headers
+[env.production.build.upload]
+rules = [
+  { type = "CompiledContentType", globs = ["**/*.js"], fallthrough = true },
+  { type = "CompiledContentType", globs = ["**/*.css"], fallthrough = true },
+  { type = "CompiledContentType", globs = ["**/*.woff2"], fallthrough = true }
+]
+
+# Performance optimizations
+[build.process.capabilities]
+v1_rpc = true

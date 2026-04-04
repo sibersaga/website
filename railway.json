@@ -1,0 +1,50 @@
+{
+  "name": "sdn3-purwosari-backend",
+  "description": "SDN 3 Purwosari School Website - Backend API",
+  "buildCommand": "npm install && npm run build --prefix=backend",
+  "startCommand": "node backend/dist/server.js",
+  "repo": "https://github.com/sibersaga/sdn3-purwosari",
+  "env": [
+    {
+      "name": "NODE_ENV",
+      "description": "Node environment",
+      "value": "production"
+    },
+    {
+      "name": "PORT",
+      "description": "Backend server port",
+      "value": "3001"
+    },
+    {
+      "name": "CORS_ORIGIN",
+      "description": "Frontend URL for CORS",
+      "value": "https://sdn3purwosari.com"
+    },
+    {
+      "name": "SUPABASE_URL",
+      "description": "Supabase project URL",
+      "placeholder": "https://xxxx.supabase.co"
+    },
+    {
+      "name": "SUPABASE_SERVICE_KEY",
+      "description": "Supabase service role key (keep secret)",
+      "placeholder": "eyJ..."
+    },
+    {
+      "name": "DATABASE_URL",
+      "description": "PostgreSQL connection string",
+      "placeholder": "postgresql://user:pass@host:5432/db"
+    },
+    {
+      "name": "JWT_SECRET",
+      "description": "Secret for JWT signing",
+      "placeholder": "your-secret-key-here"
+    }
+  ],
+  "domains": [
+    {
+      "name": "api.sdn3purwosari.com",
+      "domain": "api.sdn3purwosari.com"
+    }
+  ]
+}
